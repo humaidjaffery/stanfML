@@ -32,7 +32,7 @@ class lin_reg_sk:
 # Batch Gradient Descent (Scratch) - Only two parameters
 class batch_gradient_descent:
     def __init__(self, x, y):
-        self.learning_rate = 0.00001
+        self.learning_rate = 0.1
         self.x = x
         self.y = y 
         self.parameters = [0, 0]
@@ -42,7 +42,7 @@ class batch_gradient_descent:
         cost = []
         r2 = []
 
-        for n in range(500):
+        for n in range(10):
             print("-----" + str(n) + "-----")
             print(self.parameters)
             mse = 0
@@ -85,7 +85,7 @@ class batch_gradient_descent:
         print("R Sqaured: ")
         print(r2)
 
-        plt.plot(list(range(len(cost))), cost)
+        plt.plot(range(len(cost)), cost)
         plt.show()
 
 
@@ -143,7 +143,7 @@ class stochastic_gradient_descent:
         plt.show()
 
 class __init__:
-    print("Starting...")
+    print("Starting L2...")
     ins_data = pd.read_csv('./insurance.csv')
     age = pd.Series(ins_data['age']).values.reshape(-1, 1)
     bmi = pd.Series(ins_data['bmi']).values.reshape(-1, 1)
@@ -166,6 +166,6 @@ class __init__:
     # l.run() 
     # l.predict_score(pd.Series(simple_data_test['x']).values.reshape(-1, 1), pd.Series(simple_data_test['y']).values.reshape(-1, 1))
     b = batch_gradient_descent(age, charges)
-    # b.run()
+    b.run()
     s = stochastic_gradient_descent(x, y)
-    s.run()
+    # s.run()
